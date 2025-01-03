@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header_text">Roshni, Baby, let's catch up after my exams!</h1>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn yes" id="yesButton" ontouchstart="handleYes()">Yes</button>
+            <button class="btn no" id="noButton" ontouchstart="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        let messageCount = 0;
+
+        function handleYes() {
+            alert("Your first wish even without grapes will be true, baby!");
+            window.location.href = "yes.html"; // Redirects to a yes.html file if you create one
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.querySelector('.container');
+
+            const maxX = container.offsetWidth - noButton.offsetWidth;
+            const maxY = container.offsetHeight - noButton.offsetHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+
+            if (messageCount === 0) {
+                alert("Baby, I'll get you flowers.");
+            } else if (messageCount >= 1) {
+                alert("Are you sure, baby? You will have the best time!");
+            }
+            messageCount++;
+        }
+    </script>
+</body>
+</html>
